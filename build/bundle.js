@@ -8180,9 +8180,7 @@
 
 	'use strict';
 
-	Object.assign = null;
-	Object.assign = __webpack_require__(299);
-	var React = __webpack_require__(300);
+	var React = __webpack_require__(299);
 	var ReactDOM = __webpack_require__(329);
 
 	var Provider = __webpack_require__(475).Provider;
@@ -8202,6 +8200,109 @@
 
 /***/ },
 /* 299 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = __webpack_require__(300);
+
+
+/***/ },
+/* 300 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2013-present, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 */
+
+	'use strict';
+
+	var _assign = __webpack_require__(301);
+
+	var ReactChildren = __webpack_require__(302);
+	var ReactComponent = __webpack_require__(315);
+	var ReactPureComponent = __webpack_require__(318);
+	var ReactClass = __webpack_require__(319);
+	var ReactDOMFactories = __webpack_require__(321);
+	var ReactElement = __webpack_require__(306);
+	var ReactPropTypes = __webpack_require__(326);
+	var ReactVersion = __webpack_require__(327);
+
+	var onlyChild = __webpack_require__(328);
+	var warning = __webpack_require__(308);
+
+	var createElement = ReactElement.createElement;
+	var createFactory = ReactElement.createFactory;
+	var cloneElement = ReactElement.cloneElement;
+
+	if (process.env.NODE_ENV !== 'production') {
+	  var ReactElementValidator = __webpack_require__(322);
+	  createElement = ReactElementValidator.createElement;
+	  createFactory = ReactElementValidator.createFactory;
+	  cloneElement = ReactElementValidator.cloneElement;
+	}
+
+	var __spread = _assign;
+
+	if (process.env.NODE_ENV !== 'production') {
+	  var warned = false;
+	  __spread = function () {
+	    process.env.NODE_ENV !== 'production' ? warning(warned, 'React.__spread is deprecated and should not be used. Use ' + 'Object.assign directly or another helper function with similar ' + 'semantics. You may be seeing this warning due to your compiler. ' + 'See https://fb.me/react-spread-deprecation for more details.') : void 0;
+	    warned = true;
+	    return _assign.apply(null, arguments);
+	  };
+	}
+
+	var React = {
+
+	  // Modern
+
+	  Children: {
+	    map: ReactChildren.map,
+	    forEach: ReactChildren.forEach,
+	    count: ReactChildren.count,
+	    toArray: ReactChildren.toArray,
+	    only: onlyChild
+	  },
+
+	  Component: ReactComponent,
+	  PureComponent: ReactPureComponent,
+
+	  createElement: createElement,
+	  cloneElement: cloneElement,
+	  isValidElement: ReactElement.isValidElement,
+
+	  // Classic
+
+	  PropTypes: ReactPropTypes,
+	  createClass: ReactClass.createClass,
+	  createFactory: createFactory,
+	  createMixin: function (mixin) {
+	    // Currently a noop. Will be used to validate and trace mixins.
+	    return mixin;
+	  },
+
+	  // This looks DOM specific but these are actually isomorphic helpers
+	  // since they are just generating DOM strings.
+	  DOM: ReactDOMFactories,
+
+	  version: ReactVersion,
+
+	  // Deprecated hook for JSX spread, don't use this for anything.
+	  __spread: __spread
+	};
+
+	module.exports = React;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(294)))
+
+/***/ },
+/* 301 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -8288,109 +8389,6 @@
 		return to;
 	};
 
-
-/***/ },
-/* 300 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = __webpack_require__(301);
-
-
-/***/ },
-/* 301 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 */
-
-	'use strict';
-
-	var _assign = __webpack_require__(299);
-
-	var ReactChildren = __webpack_require__(302);
-	var ReactComponent = __webpack_require__(315);
-	var ReactPureComponent = __webpack_require__(318);
-	var ReactClass = __webpack_require__(319);
-	var ReactDOMFactories = __webpack_require__(321);
-	var ReactElement = __webpack_require__(306);
-	var ReactPropTypes = __webpack_require__(326);
-	var ReactVersion = __webpack_require__(327);
-
-	var onlyChild = __webpack_require__(328);
-	var warning = __webpack_require__(308);
-
-	var createElement = ReactElement.createElement;
-	var createFactory = ReactElement.createFactory;
-	var cloneElement = ReactElement.cloneElement;
-
-	if (process.env.NODE_ENV !== 'production') {
-	  var ReactElementValidator = __webpack_require__(322);
-	  createElement = ReactElementValidator.createElement;
-	  createFactory = ReactElementValidator.createFactory;
-	  cloneElement = ReactElementValidator.cloneElement;
-	}
-
-	var __spread = _assign;
-
-	if (process.env.NODE_ENV !== 'production') {
-	  var warned = false;
-	  __spread = function () {
-	    process.env.NODE_ENV !== 'production' ? warning(warned, 'React.__spread is deprecated and should not be used. Use ' + 'Object.assign directly or another helper function with similar ' + 'semantics. You may be seeing this warning due to your compiler. ' + 'See https://fb.me/react-spread-deprecation for more details.') : void 0;
-	    warned = true;
-	    return _assign.apply(null, arguments);
-	  };
-	}
-
-	var React = {
-
-	  // Modern
-
-	  Children: {
-	    map: ReactChildren.map,
-	    forEach: ReactChildren.forEach,
-	    count: ReactChildren.count,
-	    toArray: ReactChildren.toArray,
-	    only: onlyChild
-	  },
-
-	  Component: ReactComponent,
-	  PureComponent: ReactPureComponent,
-
-	  createElement: createElement,
-	  cloneElement: cloneElement,
-	  isValidElement: ReactElement.isValidElement,
-
-	  // Classic
-
-	  PropTypes: ReactPropTypes,
-	  createClass: ReactClass.createClass,
-	  createFactory: createFactory,
-	  createMixin: function (mixin) {
-	    // Currently a noop. Will be used to validate and trace mixins.
-	    return mixin;
-	  },
-
-	  // This looks DOM specific but these are actually isomorphic helpers
-	  // since they are just generating DOM strings.
-	  DOM: ReactDOMFactories,
-
-	  version: ReactVersion,
-
-	  // Deprecated hook for JSX spread, don't use this for anything.
-	  __spread: __spread
-	};
-
-	module.exports = React;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(294)))
 
 /***/ },
 /* 302 */
@@ -8830,7 +8828,7 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(299);
+	var _assign = __webpack_require__(301);
 
 	var ReactCurrentOwner = __webpack_require__(307);
 
@@ -9919,7 +9917,7 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(299);
+	var _assign = __webpack_require__(301);
 
 	var ReactComponent = __webpack_require__(315);
 	var ReactNoopUpdateQueue = __webpack_require__(316);
@@ -9966,7 +9964,7 @@
 	'use strict';
 
 	var _prodInvariant = __webpack_require__(304),
-	    _assign = __webpack_require__(299);
+	    _assign = __webpack_require__(301);
 
 	var ReactComponent = __webpack_require__(315);
 	var ReactElement = __webpack_require__(306);
@@ -14364,7 +14362,7 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(299);
+	var _assign = __webpack_require__(301);
 
 	var PooledClass = __webpack_require__(347);
 
@@ -14669,7 +14667,7 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(299);
+	var _assign = __webpack_require__(301);
 
 	var PooledClass = __webpack_require__(347);
 
@@ -15309,7 +15307,7 @@
 	'use strict';
 
 	var _prodInvariant = __webpack_require__(332),
-	    _assign = __webpack_require__(299);
+	    _assign = __webpack_require__(301);
 
 	var CallbackQueue = __webpack_require__(354);
 	var PooledClass = __webpack_require__(347);
@@ -18720,7 +18718,7 @@
 	'use strict';
 
 	var _prodInvariant = __webpack_require__(332),
-	    _assign = __webpack_require__(299);
+	    _assign = __webpack_require__(301);
 
 	var AutoFocusUtils = __webpack_require__(390);
 	var CSSPropertyOperations = __webpack_require__(392);
@@ -20692,7 +20690,7 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(299);
+	var _assign = __webpack_require__(301);
 
 	var EventPluginRegistry = __webpack_require__(340);
 	var ReactEventEmitterMixin = __webpack_require__(403);
@@ -21167,7 +21165,7 @@
 	'use strict';
 
 	var _prodInvariant = __webpack_require__(332),
-	    _assign = __webpack_require__(299);
+	    _assign = __webpack_require__(301);
 
 	var DOMPropertyOperations = __webpack_require__(400);
 	var LinkedValueUtils = __webpack_require__(406);
@@ -21441,7 +21439,7 @@
 
 	var _prodInvariant = __webpack_require__(332);
 
-	var React = __webpack_require__(301);
+	var React = __webpack_require__(300);
 	var ReactPropTypesSecret = __webpack_require__(407);
 
 	var invariant = __webpack_require__(305);
@@ -21600,9 +21598,9 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(299);
+	var _assign = __webpack_require__(301);
 
-	var React = __webpack_require__(301);
+	var React = __webpack_require__(300);
 	var ReactDOMComponentTree = __webpack_require__(331);
 	var ReactDOMSelect = __webpack_require__(409);
 
@@ -21728,7 +21726,7 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(299);
+	var _assign = __webpack_require__(301);
 
 	var LinkedValueUtils = __webpack_require__(406);
 	var ReactDOMComponentTree = __webpack_require__(331);
@@ -21934,7 +21932,7 @@
 	'use strict';
 
 	var _prodInvariant = __webpack_require__(332),
-	    _assign = __webpack_require__(299);
+	    _assign = __webpack_require__(301);
 
 	var LinkedValueUtils = __webpack_require__(406);
 	var ReactDOMComponentTree = __webpack_require__(331);
@@ -22810,7 +22808,7 @@
 	'use strict';
 
 	var _prodInvariant = __webpack_require__(332),
-	    _assign = __webpack_require__(299);
+	    _assign = __webpack_require__(301);
 
 	var ReactCompositeComponent = __webpack_require__(416);
 	var ReactEmptyComponent = __webpack_require__(422);
@@ -22933,9 +22931,9 @@
 	'use strict';
 
 	var _prodInvariant = __webpack_require__(332),
-	    _assign = __webpack_require__(299);
+	    _assign = __webpack_require__(301);
 
-	var React = __webpack_require__(301);
+	var React = __webpack_require__(300);
 	var ReactComponentEnvironment = __webpack_require__(412);
 	var ReactCurrentOwner = __webpack_require__(307);
 	var ReactErrorUtils = __webpack_require__(342);
@@ -23842,7 +23840,7 @@
 
 	var _prodInvariant = __webpack_require__(332);
 
-	var React = __webpack_require__(301);
+	var React = __webpack_require__(300);
 
 	var invariant = __webpack_require__(305);
 
@@ -24159,7 +24157,7 @@
 	'use strict';
 
 	var _prodInvariant = __webpack_require__(332),
-	    _assign = __webpack_require__(299);
+	    _assign = __webpack_require__(301);
 
 	var invariant = __webpack_require__(305);
 
@@ -24658,7 +24656,7 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(299);
+	var _assign = __webpack_require__(301);
 
 	var PooledClass = __webpack_require__(347);
 	var Transaction = __webpack_require__(365);
@@ -25128,7 +25126,7 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(299);
+	var _assign = __webpack_require__(301);
 
 	var emptyFunction = __webpack_require__(309);
 	var warning = __webpack_require__(308);
@@ -25515,7 +25513,7 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(299);
+	var _assign = __webpack_require__(301);
 
 	var DOMLazyTree = __webpack_require__(378);
 	var ReactDOMComponentTree = __webpack_require__(331);
@@ -25721,7 +25719,7 @@
 	'use strict';
 
 	var _prodInvariant = __webpack_require__(332),
-	    _assign = __webpack_require__(299);
+	    _assign = __webpack_require__(301);
 
 	var DOMChildrenOperations = __webpack_require__(377);
 	var DOMLazyTree = __webpack_require__(378);
@@ -25889,7 +25887,7 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(299);
+	var _assign = __webpack_require__(301);
 
 	var ReactUpdates = __webpack_require__(353);
 	var Transaction = __webpack_require__(365);
@@ -25961,7 +25959,7 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(299);
+	var _assign = __webpack_require__(301);
 
 	var EventListener = __webpack_require__(439);
 	var ExecutionEnvironment = __webpack_require__(345);
@@ -26290,7 +26288,7 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(299);
+	var _assign = __webpack_require__(301);
 
 	var CallbackQueue = __webpack_require__(354);
 	var PooledClass = __webpack_require__(347);
@@ -28335,7 +28333,7 @@
 
 	var DOMLazyTree = __webpack_require__(378);
 	var DOMProperty = __webpack_require__(333);
-	var React = __webpack_require__(301);
+	var React = __webpack_require__(300);
 	var ReactBrowserEventEmitter = __webpack_require__(402);
 	var ReactCurrentOwner = __webpack_require__(307);
 	var ReactDOMComponentTree = __webpack_require__(331);
@@ -29452,7 +29450,7 @@
 	exports.__esModule = true;
 	exports["default"] = undefined;
 
-	var _react = __webpack_require__(300);
+	var _react = __webpack_require__(299);
 
 	var _storeShape = __webpack_require__(477);
 
@@ -29535,7 +29533,7 @@
 
 	exports.__esModule = true;
 
-	var _react = __webpack_require__(300);
+	var _react = __webpack_require__(299);
 
 	exports["default"] = _react.PropTypes.shape({
 	  subscribe: _react.PropTypes.func.isRequired,
@@ -29585,7 +29583,7 @@
 
 	exports["default"] = connect;
 
-	var _react = __webpack_require__(300);
+	var _react = __webpack_require__(299);
 
 	var _storeShape = __webpack_require__(477);
 
@@ -31314,7 +31312,7 @@
 	exports.createRoutesFromReactChildren = createRoutesFromReactChildren;
 	exports.createRoutes = createRoutes;
 
-	var _react = __webpack_require__(300);
+	var _react = __webpack_require__(299);
 
 	var _react2 = _interopRequireDefault(_react);
 
@@ -31406,7 +31404,7 @@
 	exports.__esModule = true;
 	exports.locationShape = exports.routerShape = undefined;
 
-	var _react = __webpack_require__(300);
+	var _react = __webpack_require__(299);
 
 	var func = _react.PropTypes.func,
 	    object = _react.PropTypes.object,
@@ -31686,7 +31684,7 @@
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
-	var _react = __webpack_require__(300);
+	var _react = __webpack_require__(299);
 
 	var _react2 = _interopRequireDefault(_react);
 
@@ -33060,7 +33058,7 @@
 	exports.routes = exports.route = exports.components = exports.component = exports.history = undefined;
 	exports.falsy = falsy;
 
-	var _react = __webpack_require__(300);
+	var _react = __webpack_require__(299);
 
 	var func = _react.PropTypes.func,
 	    object = _react.PropTypes.object,
@@ -33103,7 +33101,7 @@
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
-	var _react = __webpack_require__(300);
+	var _react = __webpack_require__(299);
 
 	var _react2 = _interopRequireDefault(_react);
 
@@ -33267,7 +33265,7 @@
 	exports.ContextProvider = ContextProvider;
 	exports.ContextSubscriber = ContextSubscriber;
 
-	var _react = __webpack_require__(300);
+	var _react = __webpack_require__(299);
 
 	// Works around issues with context updates failing to propagate.
 	// Caveat: the context value is expected to never change its identity.
@@ -33426,7 +33424,7 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-	var _react = __webpack_require__(300);
+	var _react = __webpack_require__(299);
 
 	var _react2 = _interopRequireDefault(_react);
 
@@ -33590,7 +33588,7 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-	var _react = __webpack_require__(300);
+	var _react = __webpack_require__(299);
 
 	var _react2 = _interopRequireDefault(_react);
 
@@ -33629,7 +33627,7 @@
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
-	var _react = __webpack_require__(300);
+	var _react = __webpack_require__(299);
 
 	var _react2 = _interopRequireDefault(_react);
 
@@ -33699,7 +33697,7 @@
 
 	exports.__esModule = true;
 
-	var _react = __webpack_require__(300);
+	var _react = __webpack_require__(299);
 
 	var _react2 = _interopRequireDefault(_react);
 
@@ -33769,7 +33767,7 @@
 
 	exports.__esModule = true;
 
-	var _react = __webpack_require__(300);
+	var _react = __webpack_require__(299);
 
 	var _react2 = _interopRequireDefault(_react);
 
@@ -33878,7 +33876,7 @@
 
 	exports.__esModule = true;
 
-	var _react = __webpack_require__(300);
+	var _react = __webpack_require__(299);
 
 	var _react2 = _interopRequireDefault(_react);
 
@@ -33945,7 +33943,7 @@
 
 	exports.__esModule = true;
 
-	var _react = __webpack_require__(300);
+	var _react = __webpack_require__(299);
 
 	var _react2 = _interopRequireDefault(_react);
 
@@ -34274,7 +34272,7 @@
 
 	'use strict';
 	var strictUriEncode = __webpack_require__(537);
-	var objectAssign = __webpack_require__(299);
+	var objectAssign = __webpack_require__(301);
 
 	function encode(value, opts) {
 		if (opts.encode) {
@@ -35157,7 +35155,7 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-	var _react = __webpack_require__(300);
+	var _react = __webpack_require__(299);
 
 	var _react2 = _interopRequireDefault(_react);
 
@@ -35993,7 +35991,7 @@
 
 	'use strict';
 
-	var React = __webpack_require__(300),
+	var React = __webpack_require__(299),
 	    _require = __webpack_require__(505),
 	    Route = _require.Route,
 	    IndexRoute = _require.IndexRoute,
@@ -36026,7 +36024,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var React = __webpack_require__(300),
+	var React = __webpack_require__(299),
 	    connect = __webpack_require__(475).connect,
 	    Link = __webpack_require__(505).Link;
 
@@ -36078,21 +36076,8 @@
 	            ),
 	            this.props.children
 	          ),
-	          React.createElement('script', { src: 'https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js' }),
-	          React.createElement('script', { src: 'https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js' }),
-	          React.createElement('script', { src: 'https://cdnjs.cloudflare.com/ajax/libs/redux/3.3.1/redux.min.js' }),
-	          React.createElement('script', { src: 'https://cdnjs.cloudflare.com/ajax/libs/react-redux/4.4.0/react-redux.min.js' }),
-	          React.createElement('script', { src: 'https://npmcdn.com/react-router/umd/ReactRouter.min.js' }),
-	          React.createElement('script', { src: 'https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js' }),
-	          React.createElement('script', { src: 'https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.js' }),
-	          React.createElement('script', { src: 'src/require-shims.js' }),
-	          React.createElement('script', { type: 'text/babel', src: 'src/reducers.js' }),
-	          React.createElement('script', { type: 'text/babel', src: 'src/index.js' }),
-	          React.createElement('script', { type: 'text/babel', src: 'src/random.js' }),
-	          React.createElement('script', { type: 'text/babel', src: 'src/profile.js' }),
-	          React.createElement('script', { type: 'text/babel', src: 'src/routes.js' }),
-	          React.createElement('script', { type: 'text/babel', src: 'src/client.js' }),
-	          React.createElement('script', { dangerouslySetInnerHTML: { __html: this.props.initialState } })
+	          React.createElement('script', { dangerouslySetInnerHTML: { __html: this.props.initialState } }),
+	          React.createElement('script', { src: 'build/bundle.js' })
 	        )
 	      );
 	    }
@@ -36111,7 +36096,22 @@
 
 	module.exports = Index;
 
-	// <script src="build/bundle.js"></script>
+	//
+	// <script src="https://cdnjs.cloudflare.com/ajawebx/libs/react/15.4.0/react.min.js"></script>
+	// <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.0/react-dom.min.js"></script>
+	// <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.6.0/redux.min.js"></script>
+	// <script src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/4.4.6/react-redux.min.js"></script>
+	// <script src="https://cdnjs.cloudflare.com/ajax/libs/react-router/3.0.0/ReactRouter.min.js"></script>
+	//
+	// <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.19.0/babel.min.js"></script>
+	//
+	// <script src="src/require-shims.js"></script>
+	// <script type="text/babel" src="src/reducers.js"></script>
+	// <script type="text/babel" src="src/index.js"></script>
+	// <script type="text/babel" src="src/random.js"></script>
+	// <script type="text/babel" src="src/profile.js"></script>
+	// <script type="text/babel" src="src/routes.js"></script>
+	// <script type="text/babel" src="src/client.js"></script>
 
 /***/ },
 /* 561 */
@@ -36127,7 +36127,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var React = __webpack_require__(300),
+	var React = __webpack_require__(299),
 	    connect = __webpack_require__(475).connect,
 	    Link = __webpack_require__(505).Link;
 
@@ -36137,19 +36137,21 @@
 	  function Random(props) {
 	    _classCallCheck(this, Random);
 
-	    return _possibleConstructorReturn(this, (Random.__proto__ || Object.getPrototypeOf(Random)).call(this, props));
-	    // this.state = {
-	    //   count: 0
-	    // }
+	    var _this = _possibleConstructorReturn(this, (Random.__proto__ || Object.getPrototypeOf(Random)).call(this, props));
+
+	    _this.state = {
+	      count: 0
+	    };
+	    return _this;
 	  }
 
 	  _createClass(Random, [{
 	    key: 'onClick',
 	    value: function onClick() {
 	      console.log(this.state);
-	      // this.setState({
-	      //   count: this.state.count + 1
-	      // })
+	      this.setState({
+	        count: this.state.count + 1
+	      });
 	    }
 	  }, {
 	    key: 'render',
@@ -36157,7 +36159,8 @@
 	      return React.createElement(
 	        'h2',
 	        { onClick: this.onClick.bind(this) },
-	        'Random is Me'
+	        'Random is Me ',
+	        this.state.count
 	      );
 	    }
 	  }]);
@@ -36181,7 +36184,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var React = __webpack_require__(300),
+	var React = __webpack_require__(299),
 	    connect = __webpack_require__(475).connect,
 	    Link = __webpack_require__(505).Link;
 

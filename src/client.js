@@ -10,7 +10,6 @@ const routes = require('./routes');
 var initialState = window.__INITIAL_STATE__;
 store = store.configureStore(initialState)
 
-console.log(routes)
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory} routes={routes} />
