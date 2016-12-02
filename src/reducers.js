@@ -1,20 +1,22 @@
+const  combineReducers = require('redux').combineReducers;
 const createStore = require('redux').createStore;
 
-const reducer = (state, action) => {
-  if (state === undefined) {
-    return {};
-  }
-
-  switch (action.type) {
-    case 'add randomness':
-      return Object.assign({}, state, { data: action.comment });
+function count(state = 0, action) {
+  switch(action.type) {
+    case 'ADD_COUNT':
+      return state + 1;
+      break;
     default:
       return state;
   }
-};
+}
+
+const rootReducer = combineReducers({
+  count
+})
 
 module.exports = {
   configureStore: function(initialState) {
-    return createStore(reducer, initialState);
+    return createStore(rootReducer, initialState);
   }
 };

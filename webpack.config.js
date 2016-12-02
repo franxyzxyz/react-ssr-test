@@ -1,32 +1,34 @@
 const webpack = require('webpack')
 const path = require('path')
 
-console.log(path.resolve(__dirname, 'src'))
-
 module.exports = {
   entry: [
     'babel-polyfill',
-    './src/client.js'
+    'webpack-hot-middleware/client',
+    './src/client.js',
   ],
   output: {
     filename: 'bundle.js',
-    path: __dirname + '/build'
+    path: '/build'
   },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         exclude: /(node_modules)/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015', 'react']
-        }
+        loader: 'babel-loader'
+        // loaders: ['react-hot', 'babel-loader' ],
       },
       {
         test: /\.scss$/, loaders: ['style', 'css', 'sass']
       }
     ]
   },
+
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ],
 
   resolve: {
     extensions: ['', '.js', '.jsx']

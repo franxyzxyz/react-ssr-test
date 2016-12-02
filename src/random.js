@@ -1,27 +1,43 @@
 const React = require('react'),
       connect = require('react-redux').connect,
-      Link = require('react-router').Link
+      Link = require('react-router').Link,
+      { addCount } = require('./actions')
 
 class Random extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      count: 0
-    }
+
   }
 
   onClick() {
-    console.log(this.state)
     this.setState({
       count: this.state.count + 1
     })
   }
 
   render() {
+    const { count, onClickState } = this.props
     return (
-      <h2 onClick={this.onClick.bind(this)}>Random is Me {this.state.count}</h2>
+      <h2 onClick={onClickState}> Randome is again Me {count}</h2>
     )
   }
 }
 
-module.exports = Random
+const mapStateToProps = (state, ownProps) => {
+  return {
+    count: state.count
+  }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onClickState: () => {
+      dispatch(addCount())
+    }
+  }
+}
+
+module.exports = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Random)

@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node app.js --exec babel-node --presets es2015"
+    "start": "babel-node app.js",
+    "dev": "webpack-dev-server --no-info --quiet --content-base ./static --hot"
   },
   "dependencies": {
     "babel-core": "^6.18.2",
@@ -13,24 +14,32 @@
     "babel-preset-es2017": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "express": "^4.14.0",
+    "jest-cli": "^17.0.3",
     "object-assign": "^4.1.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
+    "react-dom-stream": "^0.5.1",
     "react-redux": "^4.4.6",
     "react-router": "^3.0.0",
     "redux": "^3.6.0"
   },
   "devDependencies": {
+    "babel-jest": "^17.0.2",
     "babel-loader": "^6.2.8",
     "babel-polyfill": "^6.16.0",
+    "enzyme": "^2.6.0",
     "eslint": "^3.11.1",
     "eslint-config-airbnb": "^13.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.7.1",
+    "jest": "^17.0.3",
     "json-loader": "^0.5.4",
     "npm-install-webpack-plugin": "^4.0.4",
+    "react-hot-loader": "^1.3.1",
+    "react-test-renderer": "^15.4.1",
     "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-server": "^1.16.2",
+    "webpack-hot-middleware": "^2.13.2"
   }
 }
